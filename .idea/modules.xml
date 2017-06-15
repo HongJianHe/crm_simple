@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/crm_mg/crm_mg.iml" filepath="$PROJECT_DIR$/crm_mg/crm_mg.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/crm_simple.iml" filepath="$PROJECT_DIR$/.idea/crm_simple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crmmg/crmmg.iml" filepath="$PROJECT_DIR$/crmmg/crmmg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/discovery/discovery.iml" filepath="$PROJECT_DIR$/discovery/discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service.service.iml" filepath="$PROJECT_DIR$/service/service.service.iml" />
     </modules>
   </component>
 </project>
