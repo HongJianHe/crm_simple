@@ -1,23 +1,19 @@
-package service;
+package com.hhj.crm.serve;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Hongjian_He on 2017/6/15
  */
 
 @SpringBootApplication
-@EnableDiscoveryClient
-@RestController
+//@EnableDiscoveryClient    单个为服务注销服务发现客户端
+
 public class ServiceApplication {
-    @GetMapping("/service")
-    public String service(){
-        return "service";
-    }
+
 
     public static void main(String[] args) {
         SpringApplication.run(ServiceApplication.class, args);
