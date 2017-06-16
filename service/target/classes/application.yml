@@ -15,3 +15,11 @@ jdbc:
 mybatis:
   typeAliasesPackage : com.hhj.crm.serve.domain
   mapperLocations:  classpath:mapper/*.xml
+flyway:
+  url:  jdbc:mysql://localhost:3306/springcloud?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8
+  user: root
+  password:
+  enabled: true
+  prefix: V
+  locations: classpath:db/migration
+  baselineOnMigrate: true

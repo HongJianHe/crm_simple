@@ -16,6 +16,7 @@
         <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
         <mysql-connector>5.1.39</mysql-connector>
         <druid>1.0.18</druid>
+        <org.flywaydb>4.0.3</org.flywaydb>
     </properties>
 
     <dependencies>
@@ -43,5 +44,21 @@
             <artifactId>druid</artifactId>
             <version>${druid}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${org.flywaydb}</version>
+        </dependency>
+
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>4.0.3</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

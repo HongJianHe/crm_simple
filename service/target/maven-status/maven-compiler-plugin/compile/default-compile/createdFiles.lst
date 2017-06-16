@@ -1,4 +1,7 @@
-com\hhj\crm\serve\domain\Test.class
 com\hhj\crm\serve\service\impl\TestServiceImpl.class
 com\hhj\crm\serve\service\TestService.class
+com\hhj\crm\serve\mapper\TestMapper.class
 com\hhj\crm\serve\ServiceApplication.class
+com\hhj\crm\serve\mybatis\MyBatisConfig.class
+com\hhj\crm\serve\domain\Test.class
+com\hhj\crm\serve\web\TestController.class
