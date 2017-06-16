@@ -7,3 +7,11 @@ eureka:
       defaultZone: http://localhost:8081/eureka/
 server:
   port: 8082
+jdbc:
+  driverClassName : com.mysql.jdbc.Driver
+  url : jdbc:mysql://localhost:3306/springcloud?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8
+  username : root
+  password :
+mybatis:
+  typeAliasesPackage : com.hhj.crm.serve.domain
+  mapperLocations:  classpath:mapper/*.xml

@@ -1,1 +1,4 @@
+com\hhj\crm\serve\domain\Test.class
+com\hhj\crm\serve\service\impl\TestServiceImpl.class
+com\hhj\crm\serve\service\TestService.class
 com\hhj\crm\serve\ServiceApplication.class

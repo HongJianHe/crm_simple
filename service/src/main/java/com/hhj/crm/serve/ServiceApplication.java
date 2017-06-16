@@ -3,15 +3,13 @@ package com.hhj.crm.serve;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Hongjian_He on 2017/6/15
  */
 
 @SpringBootApplication
-//@EnableDiscoveryClient    单个为服务注销服务发现客户端
-
+@EnableDiscoveryClient    //单个为服务注销服务发现客户端
 public class ServiceApplication {
 
 
