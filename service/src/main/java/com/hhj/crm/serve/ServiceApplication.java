@@ -9,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 
 @SpringBootApplication
-@EnableDiscoveryClient    //单个为服务注销服务发现客户端
+//@EnableDiscoveryClient    //单个为服务注销服务发现客户端
 public class ServiceApplication {
 
 

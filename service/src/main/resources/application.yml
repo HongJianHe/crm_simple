@@ -1,12 +1,18 @@
 spring:
   application:
     name: service.service
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8081/eureka/
+  datasource:
+    url: ${ conf['jdbc.url'] }
+    username: ${ conf['jdbc.username'] }
+    password: ${ conf['jdbc.password'] }
+    driverClassName: ${ conf['jdbc.driverClassName'] }
+#eureka:
+#  client:
+#    serviceUrl:·
+#      defaultZone: http://localhost:8081/eureka/
 server:
   port: 8082
+  contextPath: /crm
 jdbc:
   driverClassName : com.mysql.jdbc.Driver
   url : jdbc:mysql://localhost:3306/springcloud?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8
@@ -16,10 +22,14 @@ mybatis:
   typeAliasesPackage : com.hhj.crm.serve.domain
   mapperLocations:  classpath:mapper/*.xml
 flyway:
-  url:  jdbc:mysql://localhost:3306/springcloud?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8
-  user: root
-  password:
+  url:  ${ conf['jdbc.url'] }
+  user: ${ conf['jdbc.username'] }
+  password: ${ conf['jdbc.password'] }
   enabled: true
   prefix: V
   locations: classpath:db/migration
   baselineOnMigrate: true
+logging:
+  file: G:/CRM/log.log
+  level:
+    com.ibatis: DEBUG

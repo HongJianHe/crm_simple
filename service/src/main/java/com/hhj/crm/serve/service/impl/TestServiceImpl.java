@@ -5,13 +5,16 @@ import com.hhj.crm.serve.mapper.TestMapper;
 import com.hhj.crm.serve.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
 /**
  * Created by Hongjian_He on 2017/6/16.
  */
-@Component
+@Service
+@Transactional
 public class TestServiceImpl implements TestService {
     @Autowired
     TestMapper testMapper;
@@ -19,4 +22,5 @@ public class TestServiceImpl implements TestService {
     public void insert() {
         int insert = testMapper.insert(new Test("hehongjian",Integer.decode("1")));
     }
+
 }
