@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shuyun.datadredge.mapper.NodeOrderQueryMapper">
+    <resultMap id="BaseResultMap" type="com.shuyun.datadredge.domain.NodeOrderQuery" >
+        <id column="id" property="id"  />
+        <result column="name" property="name" />
+        <result column="remark" property="remark"  />
+        <result column="relation" property="relation"/>
+        <result column="select_items" property="selectItems"  />
+        <result column="update_time" property="updateTime"  />
+    </resultMap>
+    <update id="updateNodeOrderQuery">
+        UPDATE `node_order_query` SET `select_items`=#{selectItems} WHERE `id`= #{id};
+    </update>
+
+    <select id="findOrderQuery" resultMap="BaseResultMap">
+        select * from node_order_query
+    </select>
+
+</mapper>

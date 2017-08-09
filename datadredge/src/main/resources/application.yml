@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: datadredge
+  datasource:
+    url: ${ conf['jdbc.url'] }
+    username: ${ conf['jdbc.username'] }
+    password: ${ conf['jdbc.password'] }
+    driverClassName: ${ conf['jdbc.driverClassName'] }
+#eureka:
+#  client:
+#    serviceUrl:·
+#      defaultZone: http://localhost:8081/eureka/
+#server:
+#  port: 8082
+#  contextPath: /crm
+jdbc:
+  driverClassName : com.mysql.jdbc.Driver
+  url : jdbc:mysql://localhost:3306/alib_campaign?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8
+  username : root
+  password :
+mybatis:
+  typeAliasesPackage : com.shuyun.datadredge.domain
+  mapperLocations:  classpath:com.shuyun.datadredge/*.xml
+logging:
+  file: G:/CRM/log.log
+  level:
+    com.ibatis: DEBUG
