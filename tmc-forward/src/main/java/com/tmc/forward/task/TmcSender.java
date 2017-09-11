@@ -1,16 +1,11 @@
 package com.tmc.forward.task;
 
 import com.alibaba.fastjson.JSONArray;
-import com.tmc.forward.domain.Tmc;
+import com.tmc.forward.domain.TmcMsg;
 import com.tmc.forward.rabbitMq.BaseMQConn;
-import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.UUID;
-
-import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 /**
  * Created by Hongjian_He on 2017/9/10.
@@ -27,12 +22,8 @@ public class TmcSender extends BaseMQConn implements Runnable{
             e.printStackTrace();
         }
     }
-    public void publishEvent(Tmc tmc) throws IOException {
-        try {
-            this.getChannel().basicPublish(EXCHANGE, tmc.getTopic(),
-                    null, JSONArray.toJSONString(tmc.getContent()).getBytes());
-        } catch (IOException e) {
-            throw new IOException("MetaInfoMQProducer发布消息出错");
-        }
+    public void publishEvent(TmcMsg tmcMsg) throws IOException {
+        this.getChannel().basicPublish(EXCHANGE, tmcMsg.getTopic(),
+                null, JSONArray.toJSONString(tmcMsg.getContent()).getBytes());
     }
 }

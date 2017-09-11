@@ -1,7 +1,7 @@
 package com.tmc.forward.task;
 
 import com.tmc.forward.dao.TmcRepository;
-import com.tmc.forward.domain.Tmc;
+import com.tmc.forward.domain.TmcMsg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +23,34 @@ public class ReadTmc implements CommandLineRunner {
     private TmcRepository tmcRepository;
     @Override
     public void run(String... strings) throws Exception {
-        logger.info("读取消息开始");
-        List<Tmc> currentAll = tmcRepository.findCurrentAll();
-        //发送mq
-        if(currentAll!=null && currentAll.size()>=0){
-            for (Tmc tmc:currentAll) {
+        Long currentTimeMillis = System.currentTimeMillis();
+        while (true){
+            try {
                 TmcSender tmcSender = new TmcSender();
-                tmcSender.publishEvent(tmc);
+                logger.info("*********************读取消息开始：{}",currentTimeMillis);
+                List<TmcMsg> currentAll = tmcRepository.findCurrentAll(currentTimeMillis);
+                //发送mq
+                if (currentAll != null && currentAll.size() >= 0) {
+                    for (TmcMsg tmcMsg : currentAll) {
+                        try {
+                            tmcSender.publishEvent(tmcMsg);
+                        }catch (Exception e){
+                            logger.info("*********************发布消息失败：{}*********************", tmcMsg);
+                        }finally {
+                            currentTimeMillis = tmcMsg.getPubTime();
+                        }
+                    }
+                    logger.info("读取消息结束");
+                }
+                tmcSender.getChannel().close();
+                tmcSender.getConnection().close();
+                Thread.sleep(300000);
+                logger.info("*********************休眠5分钟*********************");
+            }catch (Exception e ){
+                logger.info("*********************发布消息失败*********************");
+            }finally {
             }
         }
-        Thread.sleep(1000);
-        logger.info("读取消息结束");
     }
 
 

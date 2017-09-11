@@ -9,8 +9,8 @@ import java.util.Map;
 /**
  * Created by Hongjian_He on 2017/9/8.
  */
-@Document
-public class Tmc implements Serializable {
+@Document(collection="tmc-msg")
+public class TmcMsg implements Serializable {
         private static final long serialVersionUID = 3770198526461322514L;
         private Date mongo_back_create_time;
         private String topic;
@@ -22,7 +22,7 @@ public class Tmc implements Serializable {
         private String content;
         private Map<String, Object> raw;
 
-        public Tmc() {
+        public TmcMsg() {
         }
 
         public String getTopic() {

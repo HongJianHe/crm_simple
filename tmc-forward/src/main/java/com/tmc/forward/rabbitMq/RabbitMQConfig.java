@@ -1,37 +1,17 @@
 package com.tmc.forward.rabbitMq;
 
-import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.Scope;
-import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
-
 /**
- * Created by Hongjian_He on 2017/9/10.
+ * created by hongjian_he on 2017/9/10.
  */
 public class RabbitMQConfig {
-//    @Value(value="${spring.rabbitmq.host}")
-    public String host ="127.0.0.1";
+    public String host ="10.24.43.96";
 
-//    @Value(value="${spring.rabbitmq.port}")
-    public int port =5672;
+    public int port =6379;
 
-//    @Value(value="${spring.rabbitmq.username}")
-    public String username = "guest";
+    public String username = "alidw";
 
-//    @Value(value="${spring.rabbitmq.password}")
-    public String password = "guest";
+    public String password = "alidw";
 
-//    @Value(value="${spring.rabbitmq.virtualHost}")
     public String virtualHost = "tmc";
 
 
