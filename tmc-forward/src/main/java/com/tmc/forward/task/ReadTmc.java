@@ -44,8 +44,8 @@ public class ReadTmc implements CommandLineRunner {
                 }
                 tmcSender.getChannel().close();
                 tmcSender.getConnection().close();
-                Thread.sleep(300000);
                 logger.info("*********************休眠5分钟*********************");
+                Thread.sleep(300000);
             }catch (Exception e ){
                 logger.info("*********************发布消息失败*********************");
             }finally {
